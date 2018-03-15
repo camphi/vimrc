@@ -5,7 +5,7 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
-" set background=dark
+set number
 " when you start searching text with /, search is performed at every new character insertion
 set incsearch
 set nopaste
