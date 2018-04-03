@@ -16,3 +16,5 @@ set comments=sr:/*,mb:*,ex:*/
 syntax on
 " check syntax with Ctrl + L
 autocmd FileType php noremap <C-L> :!/usr/bin/env php -l %<CR>
+" fix syntax with Ctrl + K
+autocmd FileType php noremap <C-K> :!php-cs-fixer fix %<CR>
