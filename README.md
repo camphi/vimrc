@@ -1,5 +1,6 @@
 # vimrc
 - https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
+- update with https://gist.github.com/JeffreyWay/68b2cdf541e2e576aa0a
 
 I include https://github.com/FriendsOfPHP/PHP-CS-Fixer
 ```bash
