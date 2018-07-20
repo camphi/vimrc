@@ -17,7 +17,20 @@ set autoindent
 " docblock comments are continued when a newline is inserted
 set comments=sr:/*,mb:*,ex:*/
 
-syntax on
+syntax enable                                                                                                            
+colorscheme atom-dark                                                                                                    
+set t_CO=256
+
+" Make backspace behave like every other editor.
+set backspace=indent,eol,start
+
+" Search                                                                                      
+set hlsearch                                                                                                             
+set incsearch
+
+"Add simple highlight removal.                                                                                           
+nmap <Leader><space> :nohlsearch<cr>
+
 " check syntax with Ctrl + L
 autocmd FileType php noremap <C-L> :!/usr/bin/env php -l %<CR>
 " fix syntax with Ctrl + K
