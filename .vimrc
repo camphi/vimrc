@@ -18,23 +18,41 @@ set autoindent
 set comments=sr:/*,mb:*,ex:*/
 
 syntax enable                                                                                                            
+" set background=dark
 colorscheme atom-dark                                                                                                    
 set t_CO=256
 
 " Make backspace behave like every other editor.
 set backspace=indent,eol,start
+" The default leader is \, but a comma is much better.
+let mapleader = ','
+" Macvim-specific line-height.
+set linespace=15
 
 " Search                                                                                      
 set hlsearch                                                                                                             
 set incsearch
 
+
+" Mapping
 "Add simple highlight removal.                                                                                           
 nmap <Leader><space> :nohlsearch<cr>
 
 " check syntax with Ctrl + L
 autocmd FileType php noremap <C-L> :!/usr/bin/env php -l %<CR>
+
 " fix syntax with Ctrl + K
 autocmd FileType php noremap <C-K> :!php-cs-fixer fix %<CR>
 
+"Make it easy to edit the Vimrc file.
+nmap <Leader>ev :tabedit $MYVIMRC<cr>
+
 "Automatically write the file when switching buffers.
 set autowriteall
+
+"Automatically source the Vimrc file on save.
+augroup autosourcing
+	autocmd!
+	autocmd BufWritePost .vimrc source %
+augroup END
+
