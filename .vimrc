@@ -50,6 +50,20 @@ nmap <Leader>ev :tabedit $MYVIMRC<cr>
 "Automatically write the file when switching buffers.
 set autowriteall
 
+"https://stackoverflow.com/questions/4292733/vim-creating-parent-directories-on-save
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
 "Automatically source the Vimrc file on save.
 augroup autosourcing
 	autocmd!
